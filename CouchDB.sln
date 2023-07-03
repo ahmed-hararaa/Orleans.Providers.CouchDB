@@ -5,10 +5,6 @@ VisualStudioVersion = 25.0.1705.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orleans.Providers.CouchDB", "Orleans.Providers.CouchDB\Orleans.Providers.CouchDB.csproj", "{2B5DAD5D-D939-4FCD-B836-C0BF51C7F25E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{FA81DA06-7E04-4920-81F9-DE74943094EF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{A26B285D-011F-4F17-BA8A-C741EA78AE78}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2071B115-CD4E-4297-BD7C-E81FA3255BE6}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
@@ -24,14 +20,6 @@ Global
 		{2B5DAD5D-D939-4FCD-B836-C0BF51C7F25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B5DAD5D-D939-4FCD-B836-C0BF51C7F25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B5DAD5D-D939-4FCD-B836-C0BF51C7F25E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA81DA06-7E04-4920-81F9-DE74943094EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA81DA06-7E04-4920-81F9-DE74943094EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA81DA06-7E04-4920-81F9-DE74943094EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA81DA06-7E04-4920-81F9-DE74943094EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A26B285D-011F-4F17-BA8A-C741EA78AE78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A26B285D-011F-4F17-BA8A-C741EA78AE78}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A26B285D-011F-4F17-BA8A-C741EA78AE78}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A26B285D-011F-4F17-BA8A-C741EA78AE78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
