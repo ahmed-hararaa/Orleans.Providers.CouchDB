@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Orleans.Sdk" Version="7.1.2" />
+    <PackageReference Include="Microsoft.Orleans.Server" Version="7.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Client\" />
+    <None Remove="Configuration\" />
+    <None Remove="Serialization\" />
+    <None Remove="Membership\" />
+    <None Remove="Client\Auth\" />
+    <None Remove="Client\Changes\" />
+    <None Remove="Storage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Client\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Serialization\" />
+    <Folder Include="Membership\" />
+    <Folder Include="Client\Auth\" />
+    <Folder Include="Client\Changes\" />
+    <Folder Include="Storage\" />
+  </ItemGroup>
+</Project>
