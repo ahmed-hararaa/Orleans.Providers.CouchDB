@@ -9,7 +9,7 @@ namespace Orleans.Providers.CouchDB.Serialization
         {
             if (name == "Id" || name == "id") return "_id";
             if (name == "Rev") return "_rev";
-            return JsonNamingPolicy.CamelCase.ConvertName(name);
+            return CamelCase.ConvertName(name);
         }
            
     }
