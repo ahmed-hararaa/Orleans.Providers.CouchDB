@@ -67,7 +67,7 @@ namespace Orleans.Providers.CouchDB.Storage
         public async Task ClearStateAsync<T>(string stateName, GrainId grainId, IGrainState<T> grainState)
         {
             var db = nameProvider.GetName(stateName);
-            await EnsureDatabase(stateName);
+            await EnsureDatabase(db);
             var id = ParseId(grainId.ToString());
             var response = await couchDbClient.Delete(db, id, grainState.ETag);
             if (response == null) return;
@@ -81,7 +81,7 @@ namespace Orleans.Providers.CouchDB.Storage
         public async Task ReadStateAsync<T>(string stateName, GrainId grainId, IGrainState<T> grainState)
         {
             var db = nameProvider.GetName(stateName);
-            await EnsureDatabase(stateName);
+            await EnsureDatabase(db);
             var id = ParseId(grainId.ToString());
             grainState.RecordExists = false;
            var response =  await couchDbClient.Get<T>(db, id, grainState.ETag);
@@ -101,7 +101,7 @@ namespace Orleans.Providers.CouchDB.Storage
         public async Task WriteStateAsync<T>(string stateName, GrainId grainId, IGrainState<T> grainState)
         {
             var db = nameProvider.GetName(stateName);
-            await EnsureDatabase(stateName);
+            await EnsureDatabase(db);
             var id = ParseId(grainId.ToString());
             grainState.RecordExists = false;
             var response = await couchDbClient.Put(db, id, grainState.State, grainState.ETag);
