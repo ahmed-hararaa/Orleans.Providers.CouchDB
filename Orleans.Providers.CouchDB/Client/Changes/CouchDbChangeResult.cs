@@ -12,6 +12,9 @@ namespace Orleans.Providers.CouchDB.Client.Changes
         [JsonPropertyName("id")]
         public string? Id { get; set; }
 
+        [JsonPropertyName("deleted")]
+        public bool Deleted { get; set; }
+
         [JsonPropertyName("changes")]
         public List<CouchDbDocumentLeave> Changes { get; set; } = new List<CouchDbDocumentLeave>();
     }
@@ -24,6 +27,9 @@ namespace Orleans.Providers.CouchDB.Client.Changes
 
         [JsonPropertyName("id")]
         public string? Id { get; set; }
+
+        [JsonPropertyName("deleted")]
+        public bool Deleted { get; set; }
 
         [JsonPropertyName("doc")]
         public T? Document { get; set; }
