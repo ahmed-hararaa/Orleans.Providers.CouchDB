@@ -116,7 +116,7 @@ namespace Orleans.Providers.CouchDB.Client
 
         public async Task<CouchDbPutResponse?> Delete(string db, string id, string rev)
         {
-            var url = $"{endpoint}/{db}/{id}";
+            var url = GetUrl($"{endpoint}/{db}/{id}", rev);
             var client = await GetClient();
             var response = await client.DeleteAsync(url);
             await _authentication.PostRequest(endpoint, response);
