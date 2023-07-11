@@ -118,7 +118,7 @@ namespace Orleans.Providers.CouchDB.Client
         {
             var url = $"{endpoint}/{db}/{id}";
             var client = await GetClient();
-            var response = await client.GetAsync(url);
+            var response = await client.DeleteAsync(url);
             await _authentication.PostRequest(endpoint, response);
             var body = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
