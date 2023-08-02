@@ -84,13 +84,16 @@ namespace Orleans.Providers.CouchDB.Storage
             await EnsureDatabase(db);
             var id = ParseId(grainId.ToString());
             grainState.RecordExists = false;
-           var response =  await couchDbClient.Get<T>(db, id, grainState.ETag);
+           var response =  await couchDbClient.Get<DocWrapper<T>>(db, id, null);
            
             if (response != null)
             {
-                if (response.Doc != null)
+                var docWrapper = response.Doc;
+                if (docWrapper != null)
                 {
-                    grainState.State = response.Doc;
+                    if (docWrapper.State != null)
+                        grainState.State = docWrapper.State;
+
                     grainState.RecordExists = true;
                 }
                 grainState.ETag = response.Rev;
@@ -100,11 +103,19 @@ namespace Orleans.Providers.CouchDB.Storage
 
         public async Task WriteStateAsync<T>(string stateName, GrainId grainId, IGrainState<T> grainState)
         {
+           
             var db = nameProvider.GetName(stateName);
             await EnsureDatabase(db);
             var id = ParseId(grainId.ToString());
             grainState.RecordExists = false;
-            var response = await couchDbClient.Put(db, id, grainState.State, grainState.ETag);
+            var docWrapper = new DocWrapper<T>()
+            {
+                Id = id,
+                ETag = grainState.ETag,
+                State = grainState.State
+            };
+
+            var response = await couchDbClient.Put(db, id, docWrapper, grainState.ETag);
             if (response != null)
             {
                 if (response.Ok && id == response.Id)
